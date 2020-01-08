@@ -1,3 +1,4 @@
+import argparse
 import os
 import shutil
 import subprocess
@@ -11,17 +12,24 @@ CONFIG_DIR = './3-parallel-execution'
 TEST_DIR = './1-browser-configuration'
 
 
-def run_tests():
+def run_tests(grid: bool):
     if os.path.exists(OUTPUT_DIR):
         shutil.rmtree(OUTPUT_DIR)
     os.mkdir(OUTPUT_DIR)
-    hub, node = start_grid()
-    rc = subprocess.run(['python', '-m', 'pabot.pabot', '--verbose', '--processes', '2',
-                         '--outputdir', 'output', '--loglevel', 'debug', '--include', 'grid',
-                         '--variable', 'REMOTE_URL:http://localhost:4444/wd/hub', TEST_DIR])
+    if grid:
+        hub, node = start_grid()
+    command = ['python', '-m', 'pabot.pabot', '--verbose', '--processes', '2',
+               '--outputdir', 'output', '--loglevel', 'debug', '--include', 'grid']
+    if grid:
+        command.append('--variable')
+        command.append('REMOTE_URL:http://localhost:4444/wd/hub')
+    command.append(TEST_DIR)
+    rc = subprocess.run(command)
     print(rc.returncode)
-    hub.kill()
-    node.kill()
+    if grid:
+        print('Stop gird.')
+        hub.kill()
+        node.kill()
 
 
 def start_grid():
@@ -69,4 +77,8 @@ def _grid_status(status=False, role='hub'):
 
 
 if __name__ == '__main__':
-    run_tests()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--grid', dest='grid', action='store_true', default=False)
+    cmd_args = parser.parse_args()
+    grid = cmd_args.grid
+    run_tests(grid)
