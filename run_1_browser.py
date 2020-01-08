@@ -3,7 +3,7 @@ import shutil
 
 from robot.run import run_cli
 
-shutil.rmtree('./output')
+shutil.rmtree('./output', ignore_errors=True)
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--include', '-i')

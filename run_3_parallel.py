@@ -17,8 +17,9 @@ def run_tests():
     os.mkdir(OUTPUT_DIR)
     hub, node = start_grid()
     rc = subprocess.run(['python', '-m', 'pabot.pabot', '--verbose', '--processes', '2',
-                         '--outputdir', 'output', '--loglevel', 'debug',
-                         TEST_DIR])
+                         '--outputdir', 'output', '--loglevel', 'debug', '--include', 'grid',
+                         '--variable', 'REMOTE_URL:http://localhost:4444/wd/hub', TEST_DIR])
+    print(rc.returncode)
     hub.kill()
     node.kill()
 
@@ -69,8 +70,3 @@ def _grid_status(status=False, role='hub'):
 
 if __name__ == '__main__':
     run_tests()
-    robot_args = ['--outputdir', 'output',
-              '--loglevel', 'debug',
-              './2-debugging']
-
-    # run_cli(robot_args)
