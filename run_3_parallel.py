@@ -23,8 +23,6 @@ def run_tests(grid: bool, pabot: bool):
     else:
         command.extend(['robot.run'])
     command.extend(['--outputdir', 'output', '--loglevel', 'debug'])
-    # command = ['python', '-m', 'pabot.pabot', '--verbose', '--processes', '2',
-    #            '--outputdir', 'output', '--loglevel', 'debug']
     if grid:
         command.append('--variable')
         command.append('REMOTE_URL:http://localhost:4444/wd/hub')
