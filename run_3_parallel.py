@@ -8,18 +8,23 @@ import time
 import requests
 
 OUTPUT_DIR = './output'
-CONFIG_DIR = './3-parallel-execution'
-TEST_DIR = './1-browser-configuration'
+TEST_DIR = './3-parallel-execution'
 
 
-def run_tests(grid: bool):
+def run_tests(grid: bool, pabot: bool):
     if os.path.exists(OUTPUT_DIR):
         shutil.rmtree(OUTPUT_DIR)
     os.mkdir(OUTPUT_DIR)
     if grid:
         hub, node = start_grid()
-    command = ['python', '-m', 'pabot.pabot', '--verbose', '--processes', '2',
-               '--outputdir', 'output', '--loglevel', 'debug', '--include', 'grid']
+    command = ['python', '-m']
+    if pabot:
+        command.extend(['pabot.pabot', '--verbose', '--processes', '2'])
+    else:
+        command.extend(['robot.run'])
+    command.extend(['--outputdir', 'output', '--loglevel', 'debug'])
+    # command = ['python', '-m', 'pabot.pabot', '--verbose', '--processes', '2',
+    #            '--outputdir', 'output', '--loglevel', 'debug']
     if grid:
         command.append('--variable')
         command.append('REMOTE_URL:http://localhost:4444/wd/hub')
@@ -35,12 +40,12 @@ def run_tests(grid: bool):
 def start_grid():
     node_file = tempfile.TemporaryFile()
     hub_file = tempfile.TemporaryFile()
-    for file in os.listdir(CONFIG_DIR):
+    for file in os.listdir(TEST_DIR):
         if file.startswith('selenium-server-standalone'):
-            selenium_jar = os.path.join(CONFIG_DIR, file)
+            selenium_jar = os.path.join(TEST_DIR, file)
             break
     else:
-        raise ValueError(f'Selenium server jar not found in {CONFIG_DIR}')
+        raise ValueError(f'Selenium server jar not found in {TEST_DIR}')
     hub = subprocess.Popen(['java', '-jar', selenium_jar, '-role', 'hub', '-host', 'localhost'],
                            stderr=subprocess.STDOUT, stdout=hub_file)
     time.sleep(2)  # It takes about two seconds to start the hub.
@@ -79,6 +84,6 @@ def _grid_status(status=False, role='hub'):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--grid', dest='grid', action='store_true', default=False)
+    parser.add_argument('--pabot', dest='pabot', action='store_true', default=False)
     cmd_args = parser.parse_args()
-    grid = cmd_args.grid
-    run_tests(grid)
+    run_tests(cmd_args.grid, cmd_args.pabot)
