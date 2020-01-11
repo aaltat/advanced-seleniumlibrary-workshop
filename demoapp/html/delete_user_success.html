@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>User deleted</title>
+    <link href="demo.css" media="all" rel="stylesheet" type="text/css">
+    <script type="text/javascript">
+        function addText() {
+            var para = document.createElement("p");
+            para.setAttribute("id", "user_deleted")
+            var username = GetURLParameter("name")
+            var node = document.createTextNode("User " + username + " was deleted successfully.");
+            para.appendChild(node);
+            var element = document.getElementById("container");
+            element.appendChild(para);
+
+            var para = document.createElement("p");
+            var link = document.createElement("a");
+            link.setAttribute("href", "welcome.html");
+            link.setAttribute("id", "to_welcome")
+            var node = document.createTextNode("Welcome page");
+            link.appendChild(node);
+            var element = document.getElementById("user_deleted");
+            para.appendChild(link);
+            element.appendChild(para);
+        }
+        function GetURLParameter(sParam) {
+            var sPageURL = window.location.search.substring(1);
+            var sURLVariables = sPageURL.split('&');
+            for (var i = 0; i < sURLVariables.length; i++) {
+                var sParameterName = sURLVariables[i].split('=');
+                if (sParameterName[0] == sParam) {
+                    return sParameterName[1];
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="addText()">
+    <div id="container">
+        <h1>User deleted</h1>
+    </div>
+</body>
+</html>

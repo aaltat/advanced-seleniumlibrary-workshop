@@ -1,0 +1,61 @@
+body {
+    font-family: sans-serif;
+    color: black;
+    background: #DDDDDD;
+}
+#container {
+    width: 30em;
+    height: 15em;
+    margin: 5em auto;
+    background: white;
+    border: 1px solid gray;
+    padding: 0.5em 2em;
+}
+#bigcontainer {
+    width: 30em;
+    margin: 5em auto;
+    background: white;
+    border: 1px solid gray;
+    padding: 0.5em 2em;
+}
+
+img {
+  display: block;
+  margin: 20px;
+}
+
+.crossRotate {
+  -webkit-transition-duration: 4s;
+  -moz-transition-duration: 4s;
+  -o-transition-duration: 4s;
+  transition-duration: 4s;
+  -webkit-transition-property: -webkit-transform;
+  -moz-transition-property: -moz-transform;
+  -o-transition-property: -o-transform;
+  transition-property: transform;
+  outline: 0;
+}
+
+.crossRotate.active {
+  -webkit-transform: rotate(1080deg);
+  -moz-transform: rotate(1080deg);
+  -ms-transform: rotate(1080deg);
+  -o-transform: rotate(1080deg);
+  transform: rotate(1080deg);
+}
+
+.animateBox {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}
+
+.animateBox.active {
+    animation-name: abox;
+    animation-duration: 4s;
+}
+
+@keyframes abox {
+    from {background-color: red;}
+    to {background-color: yellow;}
+}

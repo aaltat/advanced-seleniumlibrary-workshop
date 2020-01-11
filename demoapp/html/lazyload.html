@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lazy Load</title>
+<style>
+img.lazy {
+    width: 250px;
+    height: 150px;
+}
+</style>
+  <link href="demo.css" media="all" rel="stylesheet" type="text/css">
+  <link href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" media="all" rel="stylesheet" type="text/css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+  <script>
+    $(document).ready(function() {
+    $('.table-data').DataTable({
+        "drawCallback": function() {
+            $("img.lazy").lazyload();
+        }
+    });
+});
+  </script>
+</head>
+<body>
+<div id='bigcontainer'>
+<table class="table table-data">
+    <thead>
+        <tr>
+            <th>Thing</th>
+            <th>Foo</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td><img class="lazy" data-original="https://placeholdit.imgix.net/~text?txtsize=300&txt=1&w=500&h=500" alt="1" /></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td><img class="lazy" data-original="https://placeholdit.imgix.net/~text?txtsize=300&txt=2&w=500&h=500" alt="2" /></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td><img class="lazy" data-original="https://placeholdit.imgix.net/~text?txtsize=300&txt=3&w=500&h=500" alt="3" /></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td><img class="lazy" data-original="https://placeholdit.imgix.net/~text?txtsize=300&txt=4&w=500&h=500" alt="4" /></td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td><img class="lazy" data-original="https://placeholdit.imgix.net/~text?txtsize=300&txt=5&w=500&h=500" alt="5" /></td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td><img class="lazy" data-original="https://placeholdit.imgix.net/~text?txtsize=300&txt=6&w=500&h=500" alt="6" /></td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td><img class="lazy" data-original="https://placeholdit.imgix.net/~text?txtsize=300&txt=7&w=500&h=500" alt="7" /></td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td><img class="lazy" data-original="https://placeholdit.imgix.net/~text?txtsize=300&txt=8&w=500&h=500" alt="8" /></td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td><img class="lazy" data-original="https://placeholdit.imgix.net/~text?txtsize=300&txt=9&w=500&h=500" alt="9" /></td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td><img class="lazy" data-original="https://placeholdit.imgix.net/~text?txtsize=300&txt=10&w=500&h=500" alt="10" /></td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td><img class="lazy" data-original="https://placeholdit.imgix.net/~text?txtsize=300&txt=11&w=500&h=500" alt="11" /></td>
+        </tr>
+        <tr>
+            <td>12</td>
+            <td><img class="lazy" data-original="https://placeholdit.imgix.net/~text?txtsize=300&txt=12&w=500&h=500" alt="12" /></td>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td><img class="lazy" data-original="https://placeholdit.imgix.net/~text?txtsize=300&txt=13&w=500&h=500" alt="13" /></td>
+        </tr>
+        <tr>
+            <td>14</td>
+            <td><img class="lazy" data-original="https://placeholdit.imgix.net/~text?txtsize=300&txt=14&w=500&h=500" alt="14" /></td>
+        </tr>
+        <tr>
+            <td>15</td>
+            <td><img class="lazy" data-original="https://placeholdit.imgix.net/~text?txtsize=300&txt=15&w=500&h=500" alt="15" /></td>
+        </tr>
+        <tr>
+            <td>16</td>
+            <td><img class="lazy" data-original="https://placeholdit.imgix.net/~text?txtsize=300&txt=16&w=500&h=500" alt="16" /></td>
+        </tr>
+        <tr>
+            <td>17</td>
+            <td><img class="lazy" data-original="https://placeholdit.imgix.net/~text?txtsize=300&txt=17&w=500&h=500" alt="17" /></td>
+        </tr>
+        <tr>
+            <td>18</td>
+            <td><img class="lazy" data-original="https://placeholdit.imgix.net/~text?txtsize=300&txt=18&w=500&h=500" alt="18" /></td>
+        </tr>
+        <tr>
+            <td>19</td>
+            <td><img class="lazy" data-original="https://placeholdit.imgix.net/~text?txtsize=300&txt=19&w=500&h=500" alt="19" /></td>
+        </tr>
+        <tr>
+            <td>20</td>
+            <td><img class="lazy" data-original="https://placeholdit.imgix.net/~text?txtsize=300&txt=20&w=500&h=500" alt="20" /></td>
+        </tr>
+        <tr>
+            <td>21</td>
+            <td><img class="lazy" data-original="https://placeholdit.imgix.net/~text?txtsize=300&txt=21&w=500&h=500" alt="21" /></td>
+        </tr>
+        <tr>
+            <td>22</td>
+            <td><img class="lazy" data-original="https://placeholdit.imgix.net/~text?txtsize=300&txt=22&w=500&h=500" alt="22" /></td>
+        </tr>
+        <tr>
+            <td>23</td>
+            <td><img class="lazy" data-original="https://placeholdit.imgix.net/~text?txtsize=300&txt=23&w=500&h=500" alt="23" /></td>
+        </tr>
+        <tr>
+            <td>24</td>
+            <td><img class="lazy" data-original="https://placeholdit.imgix.net/~text?txtsize=300&txt=24&w=500&h=500" alt="24" /></td>
+        </tr>
+        <tr>
+            <td>25</td>
+            <td><img class="lazy" data-original="https://placeholdit.imgix.net/~text?txtsize=300&txt=25&w=500&h=500" alt="25" /></td>
+        </tr>
+        <tr>
+            <td>26</td>
+            <td><img class="lazy" data-original="https://placeholdit.imgix.net/~text?txtsize=300&txt=26&w=500&h=500" alt="26" /></td>
+        </tr>
+        <tr>
+            <td>27</td>
+            <td><img class="lazy" data-original="https://placeholdit.imgix.net/~text?txtsize=300&txt=27&w=500&h=500" alt="27" /></td>
+        </tr>
+        <tr>
+            <td>28</td>
+            <td><img class="lazy" data-original="https://placeholdit.imgix.net/~text?txtsize=300&txt=28&w=500&h=500" alt="28" /></td>
+        </tr>
+        <tr>
+            <td>29</td>
+            <td><img class="lazy" data-original="https://placeholdit.imgix.net/~text?txtsize=300&txt=29&w=500&h=500" alt="29" /></td>
+        </tr>
+    </tbody>
+</table>
+
+</div>
+</body>
+</html>

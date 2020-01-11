@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      testability test
+    </title>
+    <link href="demo.css" media="all" rel="stylesheet" type="text/css">
+  </head>
+  <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script type="text/javascript" src="api.js"></script>'
+  <script type="text/javascript" src="bindings.js"></script>
+  <script type="text/javascript" src="code.js"></script>
+  <script type="text/javascript">
+   window.instrumentBrowser()
+  </script>
+  <body>
+    <div id="bigcontainer">
+      <table>
+        <tr>
+            <td>
+              <button id="shorttimeout-button" type="button" name="short-timeout" onClick="shortTimeoutTrigger()">Generate Short Timeout</button>
+            </td>
+            <td>
+              <div id="shorttimeout-result">not executed</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <button id="fetch-button" type="button" name="fetch" onClick="fetchTrigger()">Generate Fetch Request</button>
+            </td>
+            <td>
+              <div id="fetch-result">not executed</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <button id="xhr-button" type="button" name="xhr" onClick="xhrTrigger()">Generate XHR Request</button>
+            </td>
+            <td>
+              <div id="xhr-result">not executed</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <button id="transition-button" type="button" name="transition" onClick="transitionTrigger()">Generate Transition</button> <img class="crossRotate" src="http://placehold.it/100" alt="Cross Menu button" tabindex="1" /> 
+            </td>
+            <td>
+              <div id="transition-result">not executed</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <button id="animate-button" type="button" name="animate" onClick="animateTrigger()">Generate Animation</button> <div id="animateBox" class="animateBox"></div> 
+            </td>
+            <td>
+              <div id="animate-result">not executed</div>
+            </td>
+        </tr>
+      </table>
+    </div">
+
+  </body>
+</html>
