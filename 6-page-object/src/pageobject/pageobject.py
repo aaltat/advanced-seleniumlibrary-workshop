@@ -68,6 +68,12 @@ class PageObject(CTX):
         if location != page_lib.page_url:
             self.sl.go_to(page_lib.page_url)
 
+    def location_should_be(self, page_lib: str):
+        self._set_search_order(self.__class__.__name__)
+        page_lib = self._get_page(page_lib)
+        location = self._get_url()
+        assert location == page_lib.page_url
+
     def _get_page(self, page: str):
         """Returns the desired page object from Robot Framework library cache.
 
