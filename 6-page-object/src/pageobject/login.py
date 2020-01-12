@@ -5,7 +5,7 @@ class Login(CTX):
 
     def __init__(self):
         CTX.__init__(self)
-        self.page_url = '%sindex.html' % self.host
+        self.page_url = self.host
 
     def login(self, username='demo', passowrd='mode'):
         """Login to to the page.
