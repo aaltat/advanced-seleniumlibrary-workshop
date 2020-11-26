@@ -27,3 +27,10 @@ Browser Specific Selenium Options Method
     Open Browser   https://robocon.io/    Chrome
     ...    options=add_experimental_option("mobileEmulation", {'deviceName': 'Galaxy S5'});add_argument("--incognito")
     Capture Page Screenshot
+
+Open Only One Browser
+    [Tags]    5
+    Open Browser    https://robocon.io/    Chrome    alias=only_one
+    Open Browser    https://github.com/robotframework/SeleniumLibrary    Chrome    alias=only_one
+    ${locations} =    Get Locations    ALL
+    Log    ${locations}
