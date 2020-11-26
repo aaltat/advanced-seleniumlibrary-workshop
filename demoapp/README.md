@@ -16,6 +16,13 @@ To start the another demo server based on flask, give command:
     FLASK_APP=flask_app.py FLASK_ENV=development FLASK_DEBUG=1  flask run
 ```
 
+In Windows CMD:
+```
+    set FLASK_APP=flask_app.py 
+    set FLASK_ENV=development
+    set FLASK_DEBUG=1  
+    flask run
+```
 
 
 
