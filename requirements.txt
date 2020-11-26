@@ -1,2 +1,4 @@
 robotframework-seleniumlibrary
 robotframework-debuglibrary
+robotframework-pabot
+requests

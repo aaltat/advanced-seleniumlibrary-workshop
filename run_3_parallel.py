@@ -27,7 +27,7 @@ def run_tests(grid: bool, pabot: bool):
         command.append('--variable')
         command.append('REMOTE_URL:http://localhost:4444/wd/hub')
     command.append(TEST_DIR)
-    rc = subprocess.run(command)
+    rc = subprocess.run(command, shell=True)
     print(rc.returncode)
     if grid:
         print('Stop gird.')
