@@ -1,5 +1,6 @@
 robotframework-seleniumlibrary
 robotframework-debuglibrary
 robotframework-pabot
+robotframework-seleniumtestability
 requests
 flask
