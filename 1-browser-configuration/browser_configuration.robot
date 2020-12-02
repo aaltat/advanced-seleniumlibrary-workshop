@@ -34,3 +34,9 @@ Open Only One Browser
     Open Browser    https://github.com/robotframework/SeleniumLibrary    Chrome    alias=only_one
     ${locations} =    Get Locations    ALL
     Log    ${locations}
+
+Create WebDriver With Headless
+    [Tags]    6
+    ${options}=	Evaluate	selenium.webdriver.ChromeOptions()	modules=selenium, selenium.webdriver
+    ${options.add_argument}=	Set Variable	headless=True
+    Create Webdriver	Chrome	options=${options}
