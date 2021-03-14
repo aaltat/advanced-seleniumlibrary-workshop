@@ -10,7 +10,6 @@ FireFox Profile As Path
 
 FireFox Profile As Object
     [Tags]    11
-    Log Variables
     Open Browser    https://github.com/robotframework/SeleniumLibrary    Firefox    ff_profile_dir=${FF_PROFILE_AS_PYTHON_OBJECT}
 
 FireFox Profile With Callin Method In Open Browser Keyword

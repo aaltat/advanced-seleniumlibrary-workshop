@@ -1,6 +1,6 @@
 *** Setting ***
 Library           SeleniumLibrary
-Suite Setup       Open Browser    https://robocon.io/    Chrome    remote_url=${REMOTE_URL}
+Suite Setup       Open Browser    https://robotframework.org/    Chrome    remote_url=${REMOTE_URL}
 Suite Teardown    Close All Browsers
 
 *** Variables ***
