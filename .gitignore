@@ -3,3 +3,11 @@
 *py.class
 .pabotsuitenames
 output
+
+# Robot Execution Artifacts
+output*.xml
+log*.html
+report*.html
+
+# Selenium screenshots
+selenium*.png
